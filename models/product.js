@@ -1,9 +1,12 @@
 var moongose = require('mongoose');
-moongose.connect("mongodb://localhost:27017/product");
+var url = "mongodb+srv://3812940:3812940a@cluster0-kgwoa.gcp.mongodb.net/product?retryWrites=true";
+moongose.connect(url, function (err) {
+    console.log(err);
+});
 var Product = new moongose.Schema({
-    url : String,
-    price : String,
-    title : String
+    url: String,
+    price: String,
+    title: String
 });
 
-var Product = module.exports = moongose.model('Product',Product,'product');
+var Product = module.exports = moongose.model('Product', Product, 'product');

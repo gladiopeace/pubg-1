@@ -1,5 +1,8 @@
 var mongoose = require('mongoose');
-mongoose.connect("mongodb://localhost:27017/user",{useNewUrlParser:true});
+var url = "mongodb+srv://3812940:3812940a@cluster0-kgwoa.gcp.mongodb.net/user?retryWrites=true";
+mongoose.connect(url,function(err){
+    if(err) throw err;
+});
 var User = new  mongoose.Schema({
     username : {
         type : String,
