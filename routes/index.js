@@ -1,8 +1,8 @@
 var express = require('express');
 var router = express.Router();
 var productController = require('../controllers/productController');
-
-
+var userController = require('../controllers/userController');
+var user = require('../models/user');
 /* GET home page. */
 router.get('/', function (req, res, next) {
   productController.getProductForCurrentPage(1, function (res) {
@@ -19,8 +19,15 @@ router.get('/page', (req, res, next) => {
   });
 });
 // login
-router.post('/login', function (req, res, next) {
-
+router.post('/login', async function (req, res, next) {
+  userController.getUserById(req.query.username, req.query.password, await function (result) {
+    if(result != null){
+      res.send("success");
+    }
+    else{
+      res.send("failed");
+    }
+  });
 });
 
 
