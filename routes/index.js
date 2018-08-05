@@ -3,12 +3,10 @@ var router = express.Router();
 var productController = require('../controllers/productController');
 var userController = require('../controllers/userController');
 var user = require('../models/user');
+var product = require('../models/product');
 /* GET home page. */
 router.get('/', function (req, res, next) {
-  productController.getProductForCurrentPage(1, function (res) {
-  });
-  console.log("Have some one log with ip" + req.ip);
-  res.render('index', { title: 'Express' });
+ 
 });
 
 

@@ -8,3 +8,8 @@ module.exports.getUserById =  function (username, password, callback) {
         callback(res);
     });
 }
+module.exports.getAllUser = function(callback){
+    User.find(function(err,res){
+        callback(res);
+    });
+}

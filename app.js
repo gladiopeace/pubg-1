@@ -43,5 +43,7 @@ app.use(function(err, req, res, next) {
   res.status(err.status || 500);
   res.render('error');
 });
-
+app.use(function(err,req,res,next){
+  res.setHeader('Cache-Control','no-cache,no-store,must-revalidate');
+});
 module.exports = app;
